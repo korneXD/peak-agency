@@ -29,21 +29,35 @@ export function Navbar() {
   return (
     <>
       <header className="fixed inset-x-0 top-0 z-50 px-4 pt-4 sm:px-6 lg:px-8">
-        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-[2rem] border border-white/60 bg-white/45 px-4 shadow-[0_8px_30px_-8px_rgba(43,30,18,0.18),inset_0_1px_0_rgba(255,255,255,0.6)] backdrop-blur-xl backdrop-saturate-150 sm:px-6">
-          <Link href="#top" className="text-foreground" onClick={() => setOpen(false)}>
-            <PeakLogo />
-          </Link>
+        <div className="relative isolate mx-auto flex h-16 max-w-7xl items-center justify-between overflow-hidden rounded-[2rem] border border-white/60 shadow-[0_8px_30px_-8px_rgba(43,30,18,0.18),inset_0_1px_0_rgba(255,255,255,0.6)]">
+          <div className="pointer-events-none absolute inset-0 -z-10">
+            <div className="absolute -inset-x-4 -inset-y-6 bg-white/35 backdrop-blur-xl backdrop-saturate-150" />
+            <div
+              className="absolute h-24 w-24 rounded-full bg-tan/50 blur-2xl"
+              style={{ animation: "liquid-glass-a 14s ease-in-out infinite" }}
+            />
+            <div
+              className="absolute right-0 h-24 w-24 rounded-full bg-parchment/60 blur-2xl"
+              style={{ animation: "liquid-glass-b 18s ease-in-out infinite" }}
+            />
+          </div>
 
-          <button
-            type="button"
-            aria-label={open ? "Menü bezárása" : "Menü megnyitása"}
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="flex h-10 items-center gap-2 rounded-full border border-white/70 bg-white/70 px-4 text-sm font-medium text-foreground transition-transform active:scale-95"
-          >
-            {open ? "Bezár" : "Menü"}
-            {open ? <XIcon size={16} /> : <ListIcon size={16} />}
-          </button>
+          <div className="flex w-full items-center justify-between px-4 sm:px-6">
+            <Link href="#top" className="text-foreground" onClick={() => setOpen(false)}>
+              <PeakLogo />
+            </Link>
+
+            <button
+              type="button"
+              aria-label={open ? "Menü bezárása" : "Menü megnyitása"}
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="flex h-10 items-center gap-2 rounded-full border border-white/70 bg-white/70 px-4 text-sm font-medium text-foreground transition-transform active:scale-95"
+            >
+              {open ? "Bezár" : "Menü"}
+              {open ? <XIcon size={16} /> : <ListIcon size={16} />}
+            </button>
+          </div>
         </div>
       </header>
 

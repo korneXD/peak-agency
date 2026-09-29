@@ -84,6 +84,24 @@
   }
 }
 
+@keyframes liquid-glass-a {
+  0%, 100% {
+    transform: translate(-10%, -20%) scale(1);
+  }
+  50% {
+    transform: translate(30%, 20%) scale(1.25);
+  }
+}
+
+@keyframes liquid-glass-b {
+  0%, 100% {
+    transform: translate(20%, 10%) scale(1.1);
+  }
+  50% {
+    transform: translate(-20%, -15%) scale(0.9);
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

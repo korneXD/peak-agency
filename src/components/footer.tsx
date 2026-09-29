@@ -5,26 +5,6 @@ import {
   LinkedinLogoIcon,
 } from "@phosphor-icons/react/dist/ssr";
 import { PeakLogo } from "@/components/logo";
-import { Separator } from "@/components/ui/separator";
-
-const columns = [
-  {
-    title: "Ügynökség",
-    links: [
-      { label: "Szolgáltatások", href: "#services" },
-      { label: "Munkáink", href: "#work" },
-      { label: "Folyamat", href: "#process" },
-      { label: "Rólunk", href: "#founder" },
-    ],
-  },
-  {
-    title: "Kapcsolat",
-    links: [
-      { label: "hello@peak-agency.hu", href: "mailto:hello@peak-agency.hu" },
-      { label: "+36 30 210 4477", href: "tel:+36302104477" },
-    ],
-  },
-];
 
 const socials = [
   { label: "Instagram", href: "https://instagram.com", Icon: InstagramLogoIcon },
@@ -35,54 +15,30 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-secondary">
-      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
-          <div className="flex flex-col gap-4">
-            <span className="text-foreground">
-              <PeakLogo />
-            </span>
-            <p className="max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Influencer marketing és PR, valódi eredményekkel.
-            </p>
-            <div className="flex gap-3 pt-2">
-              {socials.map(({ label, href, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-accent hover:text-foreground"
-                >
-                  <Icon size={16} weight="light" />
-                </a>
-              ))}
-            </div>
-          </div>
+    <footer>
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-8 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
+        <span className="text-foreground">
+          <PeakLogo />
+        </span>
 
-          {columns.map((col) => (
-            <div key={col.title} className="flex flex-col gap-3">
-              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                {col.title}
-              </span>
-              {col.links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
+        <span className="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <span>&copy; {new Date().getFullYear()} PEAK Agency</span>
+          <span>hello@peak-agency.hu · Budapest</span>
+        </span>
+
+        <div className="flex gap-3">
+          {socials.map(({ label, href, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={label}
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              <Icon size={16} weight="light" />
+            </a>
           ))}
-        </div>
-
-        <Separator className="mt-14" />
-        <div className="flex flex-col gap-2 pt-6 text-xs text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-          <span>&copy; {new Date().getFullYear()} PEAK Agency. Minden jog fenntartva.</span>
-          <span>Budapest, Magyarország</span>
         </div>
       </div>
     </footer>
