@@ -7,6 +7,7 @@ import { Work } from "@/components/sections/work";
 import { Founder } from "@/components/sections/founder";
 import { Testimonials } from "@/components/sections/testimonials";
 import { Cta } from "@/components/sections/cta";
+import { Waitlist } from "@/components/sections/waitlist";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Founder />
       <Testimonials />
       <Cta />
+      <Waitlist />
     </>
   );
 }
